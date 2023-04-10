@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Komentar;
 use App\Models\notif;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -29,5 +30,11 @@ class AppServiceProvider extends ServiceProvider
             $notif = notif::orderBy('created_at','DESC')->get();
             $view->with('notif', $notif);
         });
+        View::composer('welcome', function ($view) {
+            $komen = Komentar::orderBy('created_at','DESC')->get();
+            $view->with('komen', $komen);
+        });
+
+
     }
 }

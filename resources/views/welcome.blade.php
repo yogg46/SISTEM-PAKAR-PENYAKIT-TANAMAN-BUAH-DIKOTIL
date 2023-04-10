@@ -523,17 +523,7 @@
                <div class="row">
                   <div class="testimonial-active owl-carousel">
                      <!-- Single Testimonial-->
-                     <div class="single-testimonial">
-                        <div class="testimonail-img">
-                           <img src="/homepage/assets/img/komentar.png" alt="">
-                        </div>
-                        <div class="testimonial-content">
-                           <i class="flaticon-right-quote"></i>
-                           <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Sed do eiusmod tempor incididunt ut labore et dolo.</p>
-                           <h3>Robert Jhonson</h3>
-                           <span>Envato Customer</span>
-                        </div>
-                     </div>
+                     @foreach ($komen as $item)
 
                      <div class="single-testimonial">
                         <div class="testimonail-img">
@@ -541,11 +531,24 @@
                         </div>
                         <div class="testimonial-content">
                            <i class="flaticon-right-quote"></i>
+                           <p>{{ $item->saran }}</p>
+                           <h3>{{ $item->username }}</h3>
+                           <span>{{ $item->nilai == "1" ? "Sangat Buruk": ($item->nilai == "2" ? "Buruk": ($item->nilai == "3" ? "Cukup": ($item->nilai == "4" ? "Baik": "Sangat Baik")) ) }}</span>
+                        </div>
+                     </div>
+                     @endforeach
+
+                     {{-- <div class="single-testimonial">
+                        <div class="testimonail-img">
+                           <img src="/homepage/assets/img/komentar.png" alt="">
+                        </div>
+                        <div class="testimonial-content">
+                           <i class="flaticon-right-quote"></i>
                            <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Sed do eiusmod tempor incididunt ut labore et dolo.</p>
                            <h3>Robert Jhonson</h3>
                            <span>Envato Customer</span>
                         </div>
-                     </div>
+                     </div> --}}
                      <!-- Single Testimonial-->
                      <!-- Single Testimonial-->
 
